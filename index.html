@@ -303,6 +303,11 @@
           </li>`;
       }).join('');
 
+      // CẬP NHẬT ĐOẠN NÀY VÀO PHẦN RENDER TRONG FILE INDEX.HTML
+// Bạn hãy copy nguyên khối này thay thế cho khối card.innerHTML cũ trong function renderList
+
+      const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}&travelmode=driving`;
+
       card.innerHTML = `
         <div class="card-header-info">
           <div class="card-title-group">
@@ -325,6 +330,26 @@
             <h4>Bảng giá & Menu món</h4>
             <ul class="menu-list">${menuHtml}</ul>
           </div>
+          
+          <!-- THÊM ĐOẠN NÀY VÀO CUỐI PHẦN DETAILS -->
+          <div class="gmap-btn-container" style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-color); text-align: center;">
+            <a href="${mapUrl}" target="_blank" class="open-gmap-btn" style="
+              display: inline-block;
+              background: #4285F4; /* Màu xanh Google Maps */
+              color: white;
+              text-decoration: none;
+              font-weight: bold;
+              padding: 12px 24px;
+              border-radius: 50px;
+              font-size: 0.9rem;
+              box-shadow: 0 4px 12px rgba(66, 133, 244, 0.4);
+              transition: transform 0.2s;
+            " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+              🧭 Mở Google Maps chỉ đường
+            </a>
+          </div>
+          <!---------------------------------------->
+          
         </div>
       `;
 
